@@ -1,250 +1,372 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl" data-theme="dark">
+
 <head>
-    <!-- Title Information -->
-    <title>Bassam Fahad Resume</title>
-
-    <!-- Character Encoding Information -->
-    <meta charset="UTF-8">
-
-    <!-- Description Information -->
-    <meta name="description" content="Bassam Fahad Resume">
-
-    <!-- Keywords Information -->
-    <meta name="keywords" content="Bassam, Fahad, Resume, Personal Website">
-
-    <!-- Author Information -->
-    <meta name="author" content="Bassam Fahad Abdulaziz Ahmed">
-
-    <!-- Viewport Information -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
-            background-color: #f4f6f9;
-            color: #222;
-            margin: 0;
-            padding: 40px 20px;
-        }
-
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-
-            /* Flexbox */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* Logo */
-        .logo {
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: 28px;
-            margin: 10px 0 4px;
-            color: #1a2b4c;
-        }
-
-        .subtitle {
-            color: #6b7280;
-            margin-bottom: 30px;
-            font-size: 15px;
-        }
-
-        /* CSS Grid */
-        .info {
-            width: 100%;
-            text-align: left;
-            border-top: 1px solid #eee;
-            padding-top: 20px;
-
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .info p {
-            margin: 0;
-            font-size: 15px;
-            line-height: 1.6;
-            background-color: #f4f6f9;
-            padding: 12px;
-            border-radius: 8px;
-        }
-
-        .info b {
-            color: #1a2b4c;
-        }
-
-        /* Guessing Game Button */
-        .game-button {
-            margin-top: 30px;
-            padding: 12px 25px;
-            background-color: #1a2b4c;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .game-button:hover {
-            background-color: #3b5998;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 600px) {
-            .container {
-                padding: 25px;
-            }
-
-            .info {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page_title">ملعبي | احجز ملعبك في دقيقة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="game.js"></script>
 </head>
 
 <body>
 
-    <div class="container">
+  <!-- ===== خلفية الملعب المتحركة ===== -->
+  <div class="pitch-glow pitch-glow--one" aria-hidden="true"></div>
+  <div class="pitch-glow pitch-glow--two" aria-hidden="true"></div>
 
-        <!-- Logo (SVG) -->
-        <div class="logo">
-            <svg width="90" height="90" viewBox="0 0 90 90"
-                 xmlns="http://www.w3.org/2000/svg">
+  <!-- ===== شريط التنقل ===== -->
+  <header class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="#top" class="brand">
+        <span class="brand__mark">
+          <svg viewBox="0 0 48 48" width="30" height="30" aria-hidden="true">
+            <circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="2.5" />
+            <path d="M24 10 L31 16 L28 25 L20 25 L17 16 Z" fill="currentColor" />
+            <path d="M24 10 L24 4 M8 20 L4 17 M8 28 L4 32 M40 20 L44 17 M40 28 L44 32 M24 38 L24 44"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </span>
+        <span class="brand__text" data-i18n="brand">ملعبي</span>
+      </a>
 
-                <circle cx="45" cy="45" r="43"
-                        fill="#1a2b4c"
-                        stroke="#3b5998"
-                        stroke-width="2"/>
+      <nav class="navlinks" id="navlinks">
+        <a href="#pitches" class="navlinks__link" data-i18n="nav_pitches">الملاعب</a>
+        <a href="#how" class="navlinks__link" data-i18n="nav_how">كيف يعمل</a>
+        <a href="#booking" class="navlinks__link" data-i18n="nav_booking">الحجز</a>
+        <a href="#contact" class="navlinks__link" data-i18n="nav_contact">تواصل معنا</a>
+      </nav>
 
-                <text x="50%" y="55%"
-                      text-anchor="middle"
-                      dy=".35em"
-                      font-family="Segoe UI, Arial, sans-serif"
-                      font-size="30"
-                      font-weight="bold"
-                      fill="#ffffff">
-                    BF
-                </text>
-            </svg>
-        </div>
-
-        <!-- Resume Information -->
-        <h1>Bassam Fahad Abdulaziz Ahmed</h1>
-
-        <p class="subtitle">
-            Information Technology (IT)
-        </p>
-
-        <div class="info">
-
-            <!-- Major Information -->
-            <p>
-                <b>Major:</b> Information Technology (IT)
-            </p>
-
-            <!-- Languages Information -->
-            <p>
-                <b>Languages:</b> Arabic, English
-            </p>
-
-            <!-- Programming Languages Information -->
-            <p>
-                <b>Programming Languages:</b> HTML, CSS, JavaScript
-            </p>
-
-            <!-- Projects Information -->
-            <p>
-                <b>Projects:</b> Football Field Booking Website
-            </p>
-
-            <!-- Activities Information -->
-            <p>
-                <b>Activities:</b> Web Technology Course
-            </p>
-
-        </div>
-
-        <!-- Guessing Game Button -->
-        <button class="game-button" onclick="guessingGame()">
-            Play Guessing Game
+      <div class="navbar__actions">
+        <button class="icon-btn" id="langToggle" type="button" aria-label="Toggle language">
+          <span id="langLabel">EN</span>
         </button>
-
+        <button class="icon-btn icon-btn--theme" id="themeToggle" type="button" aria-label="Toggle theme">
+          <svg id="iconMoon" viewBox="0 0 24 24" width="18" height="18">
+            <path fill="currentColor" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+          </svg>
+          <svg id="iconSun" viewBox="0 0 24 24" width="18" height="18" style="display:none">
+            <circle cx="12" cy="12" r="5" fill="currentColor" />
+            <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.2" y1="4.2" x2="5.6" y2="5.6" />
+              <line x1="18.4" y1="18.4" x2="19.8" y2="19.8" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.2" y1="19.8" x2="5.6" y2="18.4" />
+              <line x1="18.4" y1="5.6" x2="19.8" y2="4.2" />
+            </g>
+          </svg>
+        </button>
+        <a href="#booking" class="btn btn--primary btn--nav" data-i18n="nav_cta">احجز الآن</a>
+        <button class="burger" id="burgerBtn" type="button" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
+  </header>
 
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#pitches" class="mobile-panel__link" data-i18n="nav_pitches">الملاعب</a>
+    <a href="#how" class="mobile-panel__link" data-i18n="nav_how">كيف يعمل</a>
+    <a href="#booking" class="mobile-panel__link" data-i18n="nav_booking">الحجز</a>
+    <a href="#contact" class="mobile-panel__link" data-i18n="nav_contact">تواصل معنا</a>
+    <a href="#booking" class="btn btn--primary mobile-panel__cta" data-i18n="nav_cta">احجز الآن</a>
+  </div>
+  <div class="overlay" id="overlay"></div>
 
-    <!-- JavaScript Guessing Game -->
-    <script>
+  <main id="top">
 
-        function guessingGame() {
+    <!-- ===== الهيرو ===== -->
+    <section class="hero">
+      <div class="hero__content">
+        <span class="eyebrow">
+          <span class="eyebrow__dot"></span>
+          <span data-i18n="hero_eyebrow">أكثر من 40 ملعب متاح الآن</span>
+        </span>
+        <h1 class="hero__title">
+          <span data-i18n="hero_title_1">احجز ملعبك،</span>
+          <span class="hero__title-accent" data-i18n="hero_title_2">وادخل تحت الأنوار.</span>
+        </h1>
+        <p class="hero__desc" data-i18n="hero_desc">اختر الملعب، الوقت، وادفع بثواني. تذكرتك جاهزة قبل ما توصل.</p>
+        <div class="hero__actions">
+          <a href="#pitches" class="btn btn--primary btn--lg" data-i18n="hero_cta_1">تصفح الملاعب</a>
+          <a href="#how" class="btn btn--ghost btn--lg" data-i18n="hero_cta_2">كيف يعمل الحجز</a>
+        </div>
+        <div class="hero__stats">
+          <div class="hero__stat">
+            <strong>1,200+</strong>
+            <span data-i18n="stat_1">حجز هذا الشهر</span>
+          </div>
+          <div class="hero__stat">
+            <strong>4.9</strong>
+            <span data-i18n="stat_2">تقييم اللاعبين</span>
+          </div>
+          <div class="hero__stat">
+            <strong>24/7</strong>
+            <span data-i18n="stat_3">حجز فوري</span>
+          </div>
+        </div>
+      </div>
 
-            // Computer chooses a random number from 0 to 10
-            let number = Math.floor(Math.random() * 11);
+      <div class="hero__ticket" aria-hidden="true">
+        <div class="scoreboard">
+          <div class="scoreboard__row">
+            <span class="scoreboard__label" data-i18n="scoreboard_next">المباراة القادمة</span>
+          </div>
+          <div class="scoreboard__digits">
+            <div class="digit">18</div><span>:</span>
+            <div class="digit">30</div>
+          </div>
+          <div class="scoreboard__row scoreboard__row--sub">
+            <span data-i18n="scoreboard_field">ملعب النخبة · 7 لاعبين</span>
+          </div>
+          <div class="scoreboard__bulbs">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            // Variable for player's guess
-            let guess;
+    <!-- ===== شريط الشركاء / ثقة ===== -->
+    <section class="trust">
+      <p class="trust__title" data-i18n="trust_title">ملاعب معتمدة من أفضل الأكاديميات والمراكز الرياضية</p>
+    </section>
 
-            // Ask the player to guess
-            do {
+    <!-- ===== الملاعب ===== -->
+    <section class="section" id="pitches">
+      <div class="section__head">
+        <span class="section__eyebrow" data-i18n="pitches_eyebrow">الملاعب المتاحة</span>
+        <h2 class="section__title" data-i18n="pitches_title">اختر أرضك</h2>
+        <p class="section__desc" data-i18n="pitches_desc">ملاعب عشب صناعي بمواصفات احترافية، إضاءة ليلية، وغرف تبديل
+          ملابس.</p>
+      </div>
 
-                guess = Number(
-                    prompt("Guess a number between 0 and 10:")
-                );
+      <div class="filters" id="filters">
+        <button class="filter-chip is-active" data-filter="all" data-i18n="filter_all">الكل</button>
+        <button class="filter-chip" data-filter="5" data-i18n="filter_5">خماسي</button>
+        <button class="filter-chip" data-filter="7" data-i18n="filter_7">سباعي</button>
+        <button class="filter-chip" data-filter="11" data-i18n="filter_11">كرة 11</button>
+      </div>
 
-                // Check the guess
-                if (guess === number) {
+      <div class="pitches-grid" id="pitchesGrid"></div>
+    </section>
 
-                    alert("Yeah, you guessed it!");
+    <!-- ===== كيف يعمل ===== -->
+    <section class="section section--alt" id="how">
+      <div class="section__head">
+        <span class="section__eyebrow" data-i18n="how_eyebrow">ثلاث خطوات فقط</span>
+        <h2 class="section__title" data-i18n="how_title">من الاختيار إلى الملعب</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step__num">01</div>
+          <h3 data-i18n="how_1_title">اختر ملعبك</h3>
+          <p data-i18n="how_1_desc">تصفح الملاعب القريبة منك حسب الحجم والسعر والتقييم.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">02</div>
+          <h3 data-i18n="how_2_title">اختر الوقت</h3>
+          <p data-i18n="how_2_desc">شوف الأوقات المتاحة على شكل لوحة نتيجة وحدد وقتك المفضل.</p>
+        </div>
+        <div class="step">
+          <div class="step__num">03</div>
+          <h3 data-i18n="how_3_title">ادفع واستلم تذكرتك</h3>
+          <p data-i18n="how_3_desc">أكمل الدفع الإلكتروني واستلم تذكرة الحجز فورًا برمز تأكيد.</p>
+        </div>
+      </div>
+    </section>
 
-                } 
-                else if (guess < number) {
+    <!-- ===== قسم الحجز ===== -->
+    <section class="section" id="booking">
+      <div class="section__head">
+        <span class="section__eyebrow" data-i18n="booking_eyebrow">أكمل حجزك</span>
+        <h2 class="section__title" data-i18n="booking_title">اختر الوقت وادفع</h2>
+        <p class="section__desc" data-i18n="booking_desc">اختر ملعبًا من الأعلى، أو ابدأ من هنا مباشرة.</p>
+      </div>
 
-                    alert("Too low, try again");
+      <div class="booking-layout">
+        <div class="booking-form">
 
-                } 
-                else {
+          <div class="form-block">
+            <label class="form-label" data-i18n="label_pitch">الملعب المختار</label>
+            <select id="selectPitch" class="form-select"></select>
+          </div>
 
-                    alert("Too high, try again");
+          <div class="form-block">
+            <label class="form-label" data-i18n="label_date">التاريخ</label>
+            <input type="date" id="selectDate" class="form-input">
+          </div>
 
-                }
+          <div class="form-block">
+            <label class="form-label" data-i18n="label_time">الوقت المتاح</label>
+            <div class="slots" id="slotsGrid"></div>
+            <p class="slots__hint">
+              <span class="dot dot--free"></span><span data-i18n="slot_free">متاح</span>
+              <span class="dot dot--taken"></span><span data-i18n="slot_taken">محجوز</span>
+              <span class="dot dot--active"></span><span data-i18n="slot_active">اختيارك</span>
+            </p>
+          </div>
 
-            } while (guess !== number);
+          <div class="form-block">
+            <label class="form-label" data-i18n="label_name">الاسم الكامل</label>
+            <input type="text" id="fullName" class="form-input" data-i18n-placeholder="ph_name"
+              placeholder="مثال: عبدالله الحربي">
+          </div>
 
+          <div class="form-block form-block--split">
+            <div>
+              <label class="form-label" data-i18n="label_phone">رقم الجوال</label>
+              <input type="tel" id="phone" class="form-input" data-i18n-placeholder="ph_phone" placeholder="05xxxxxxxx">
+            </div>
+            <div>
+              <label class="form-label" data-i18n="label_players">عدد اللاعبين</label>
+              <input type="number" id="players" class="form-input" min="2" max="22" value="10">
+            </div>
+          </div>
 
-            // Ask if the player wants to play again
-            let playAgain = prompt(
-                "Do you want to play again? (yes/no)"
-            );
+          <div class="form-block">
+            <label class="form-label" data-i18n="label_payment">طريقة الدفع</label>
+            <div class="pay-methods" id="payMethods">
+              <button type="button" class="pay-chip is-active" data-pay="card">
+                <span data-i18n="pay_card">بطاقة بنكية</span>
+              </button>
+              <button type="button" class="pay-chip" data-pay="applepay">
+                <span data-i18n="pay_apple">Apple Pay</span>
+              </button>
+              <button type="button" class="pay-chip" data-pay="stcpay">
+                <span data-i18n="pay_stc">STC Pay</span>
+              </button>
+            </div>
 
+            <div class="card-fields" id="cardFields">
+              <input type="text" class="form-input" data-i18n-placeholder="ph_card" placeholder="رقم البطاقة"
+                maxlength="19" id="cardNumber">
+              <div class="form-block--split">
+                <input type="text" class="form-input" data-i18n-placeholder="ph_expiry" placeholder="MM/YY"
+                  maxlength="5" id="cardExpiry">
+                <input type="text" class="form-input" data-i18n-placeholder="ph_cvv" placeholder="CVV" maxlength="3"
+                  id="cardCVV">
+              </div>
+            </div>
+          </div>
 
-            // Play again or quit
-            if (playAgain.toLowerCase() === "yes") {
+          <button class="btn btn--primary btn--full btn--lg" id="confirmBtn" type="button">
+            <span data-i18n="btn_confirm">تأكيد الحجز والدفع</span>
+          </button>
+          <p class="form-note" id="formError"></p>
+        </div>
 
-                guessingGame();
+        <!-- ===== تذكرة الحجز الحيّة ===== -->
+        <aside class="ticket" id="ticketCard">
+          <div class="ticket__top">
+            <span class="ticket__brand" data-i18n="brand">ملعبي</span>
+            <span class="ticket__status" id="ticketStatus" data-i18n="ticket_pending">قيد الإعداد</span>
+          </div>
+          <div class="ticket__pitch">
+            <img id="ticketImg" src="" alt="">
+            <div>
+              <strong id="ticketPitchName">—</strong>
+              <span id="ticketPitchType">—</span>
+            </div>
+          </div>
+          <div class="ticket__divider">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="ticket__rows">
+            <div class="ticket__row">
+              <span data-i18n="ticket_date">التاريخ</span>
+              <strong id="ticketDate">—</strong>
+            </div>
+            <div class="ticket__row">
+              <span data-i18n="ticket_time">الوقت</span>
+              <strong id="ticketTime">—</strong>
+            </div>
+            <div class="ticket__row">
+              <span data-i18n="ticket_players">اللاعبون</span>
+              <strong id="ticketPlayers">—</strong>
+            </div>
+            <div class="ticket__row ticket__row--total">
+              <span data-i18n="ticket_total">الإجمالي</span>
+              <strong id="ticketTotal">0 <span data-i18n="sar">ر.س</span></strong>
+            </div>
+          </div>
+          <div class="ticket__code">
+            <span data-i18n="ticket_code">رمز الحجز</span>
+            <strong id="ticketCode">— — — —</strong>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-            } 
-            else {
+    <!-- ===== آراء اللاعبين ===== -->
+    <section class="section section--alt">
+      <div class="section__head">
+        <span class="section__eyebrow" data-i18n="reviews_eyebrow">آراء اللاعبين</span>
+        <h2 class="section__title" data-i18n="reviews_title">ثقة آلاف اللاعبين أسبوعيًا</h2>
+      </div>
+      <div class="reviews">
+        <div class="review">
+          <p data-i18n="review_1">"احجز من جوالي بثلاث دقائق، والملعب دايم جاهز بدون أي تأخير."</p>
+          <strong data-i18n="review_1_name">— فهد. س</strong>
+        </div>
+        <div class="review">
+          <p data-i18n="review_2">"لوحة الأوقات واضحة جدًا، أعرف الفاضي من المحجوز أول ما أفتح الصفحة."</p>
+          <strong data-i18n="review_2_name">— سلطان. م</strong>
+        </div>
+        <div class="review">
+          <p data-i18n="review_3">"التذكرة الإلكترونية شكلها احترافي وأرسلها للفريق على طول."</p>
+          <strong data-i18n="review_3_name">— عبدالرحمن. ق</strong>
+        </div>
+      </div>
+    </section>
 
-                alert("Goodbye!");
+    <!-- ===== تواصل معنا / فوتر ===== -->
+    <footer class="footer" id="contact">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <span class="brand__text" data-i18n="brand">ملعبي</span>
+          <p data-i18n="footer_desc">منصتك لحجز الملاعب الرياضية بسهولة وسرعة، على مدار الساعة.</p>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer_links">روابط</h4>
+          <a href="#pitches" data-i18n="nav_pitches">الملاعب</a>
+          <a href="#how" data-i18n="nav_how">كيف يعمل</a>
+          <a href="#booking" data-i18n="nav_booking">الحجز</a>
+        </div>
+        <div class="footer__col">
+          <h4 data-i18n="footer_contact">تواصل</h4>
+          <span dir="ltr">+966 50 000 0000</span>
+          <span dir="ltr">support@mala3bi.sa</span>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span data-i18n="footer_rights">© 2026 ملعبي. جميع الحقوق محفوظة.</span>
+      </div>
+    </footer>
+  </main>
 
-            }
-        }
+  <!-- ===== نافذة تأكيد الحجز ===== -->
+  <div class="modal" id="successModal">
+    <div class="modal__card">
+      <div class="modal__icon">
+        <svg viewBox="0 0 24 24" width="30" height="30">
+          <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+            d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+      <h3 data-i18n="modal_title">تم تأكيد حجزك!</h3>
+      <p data-i18n="modal_desc">أرسلنا تفاصيل الحجز، جهّز فريقك ونشوفك في الملعب.</p>
+      <button class="btn btn--primary btn--full" id="closeModal" data-i18n="modal_close">تمام</button>
+    </div>
+  </div>
 
-    </script>
-
+  <script src="script.js"></script>
 </body>
+
 </html>
