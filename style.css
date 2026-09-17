@@ -1,0 +1,268 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation */
+.navbar {
+    background-color: #1a2b4c;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h2 {
+    color: white;
+    margin: 0;
+}
+
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+}
+
+#menuButton {
+    display: none;
+    font-size: 25px;
+    background: none;
+    color: white;
+    border: none;
+}
+
+/* Main Container */
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+    /* Flexbox */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Logo */
+.logo {
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    margin: 10px 0 4px;
+    color: #1a2b4c;
+    text-align: center;
+}
+
+.subtitle {
+    color: #6b7280;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* CSS Grid */
+.info {
+    width: 100%;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.info p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    background-color: #f4f6f9;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.info b {
+    color: #1a2b4c;
+}
+
+/* Visitor */
+.visitor {
+    margin: 30px 0;
+    font-weight: bold;
+}
+
+/* Gallery */
+#gallery {
+    width: 100%;
+    text-align: center;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+.mySlides:first-child {
+    display: block;
+}
+
+.mySlides img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.numbertext {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    color: white;
+}
+
+.text {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 15px;
+    color: white;
+    font-size: 25px;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.dots {
+    margin-top: 10px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 4px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.active,
+.dot:hover {
+    background-color: #555;
+}
+
+/* Contact */
+#contact {
+    width: 100%;
+    margin-top: 40px;
+}
+
+#contact h2 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+input,
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+textarea {
+    height: 100px;
+}
+
+form button {
+    padding: 10px;
+    background-color: #1a2b4c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Go To Top */
+#topButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: block;
+    border: none;
+    border-radius: 50%;
+    padding: 12px 16px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #1a2b4c;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+
+    .container {
+        margin: 20px;
+        padding: 25px;
+    }
+
+    .info {
+        grid-template-columns: 1fr;
+    }
+
+    #menuButton {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+}
